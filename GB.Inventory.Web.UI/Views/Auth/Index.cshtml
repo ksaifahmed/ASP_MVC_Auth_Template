@@ -1,0 +1,111 @@
+﻿@model GB.Inventory.Model.User;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "../Shared/_LoginLayout.cshtml";
+}
+
+@section Styles {
+    <style>
+        .login-page {
+            width: 360px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .form {
+            border-radius: 5px;
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
+            max-width: 360px;
+            margin: 0 auto 100px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+        .form input {
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .form button {
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .form button:hover,.form button:active,.form button:focus {
+            background: #43A047;
+        }
+        .form .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+        .form .message a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .form .register-form {
+            display: none;
+        }
+
+        label {
+            text-align: left;
+            color: dimgrey;
+            width: 100%;
+        }
+
+
+    </style>
+}
+
+
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" action="Auth" method="post">
+            <div class="form-group my-3">
+                <label for="login-textbox-username" >Username</label>
+                @Html.TextBoxFor(
+                    m => m.UserName, 
+                    new { 
+                        @type="text",
+                        @class = "form-control my-2", 
+                        @id="login-textbox-username", 
+                        @placeholder="Enter your username"
+                    }
+                )
+            </div>
+
+            <div class="form-group my-3">
+                <label for="login-textbox-password" >Password</label>
+                @Html.PasswordFor(
+                    m => m.Password, 
+                    new { 
+                        @type="password",
+                        @class = "form-control my-2", 
+                        @id="login-textbox-password", 
+                        @placeholder="Enter your password"
+                    }
+                )
+            </div>
+
+            <button type="submit" class="btn btn-primary login my-3" id="login-btn">Login</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+.vs/
+bin/
+obj/
+*.swp/
+*.exe/
+*.pubxml.user/
+PublishProfiles/
+./appsettings.json

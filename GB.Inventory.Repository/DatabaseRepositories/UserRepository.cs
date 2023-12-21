@@ -15,5 +15,12 @@ namespace GB.Inventory.Repository.DatabaseRepositories
         {
             this.context = context;
         }
+
+        public User GetUserByUserName(string username) 
+        {
+            return context.Users
+                .Where(u => u.UserName == username)
+                .FirstOrDefault();
+        }
     }
 }
